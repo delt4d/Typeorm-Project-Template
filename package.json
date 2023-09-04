@@ -10,7 +10,8 @@
   "dependencies": {
     "@commitlint/cli": "^17.7.1",
     "@commitlint/config-conventional": "^17.7.0",
-    "husky": "^8.0.3"
+    "husky": "^8.0.3",
+    "typeorm": "^0.3.17"
   },
   "husky": {
     "hooks": {
