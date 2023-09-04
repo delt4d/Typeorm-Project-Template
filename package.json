@@ -7,7 +7,9 @@
     "typeorm": "node --require ts-node/register ./node_modules/typeorm/cli.js",
     "migration:create": "npm run typeorm migration:create -o -n",
     "migration:run": "dotenv -- npm run typeorm migration:run -- -d src/infra/scripts/typeorm-data-source.js",
-    "migration:seed": "dotenv -- node src/infra/scripts/seed-database.js"
+    "migration:seed": "dotenv -- node src/infra/scripts/seed-database.js",
+    "services:up": "docker-compose -f src/infra/docker-compose.development.yml up -d || docker compose -f src/infra/docker-compose.development.yml up -d",
+    "services:stop": "docker-compose -f src/infra/docker-compose.development.yml stop || docker compose -f src/infra/docker-compose.development.yml stop"
   },
   "type": "module",
   "keywords": [],
