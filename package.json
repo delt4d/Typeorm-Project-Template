@@ -9,7 +9,8 @@
     "migration:run": "dotenv -- npm run typeorm migration:run -- -d src/infra/scripts/typeorm-data-source.js",
     "migration:seed": "dotenv -- node src/infra/scripts/seed-database.js",
     "services:up": "docker-compose -f src/infra/docker-compose.development.yml up -d || docker compose -f src/infra/docker-compose.development.yml up -d",
-    "services:stop": "docker-compose -f src/infra/docker-compose.development.yml stop || docker compose -f src/infra/docker-compose.development.yml stop"
+    "services:stop": "docker-compose -f src/infra/docker-compose.development.yml stop || docker compose -f src/infra/docker-compose.development.yml stop",
+    "commit": "cz"
   },
   "type": "module",
   "keywords": [],
@@ -24,11 +25,18 @@
   },
   "husky": {
     "hooks": {
-      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS",
+      "prepare-commit-msg": "exec < /dev/tty && npx cz --hook || true"
     }
   },
   "devDependencies": {
+    "cz-conventional-changelog": "^3.3.0",
     "dotenv": "^16.3.1",
     "dotenv-cli": "^7.3.0"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
   }
 }
