@@ -1,13 +1,4 @@
-import { URL } from 'url';
+import { dirname, join } from 'path';
+import { fileURLToPath } from 'url';
 
-const getDirname = () => new URL('.', import.meta.url).pathname;
-const getFilename = () => new URL('', import.meta.url).pathname;
-
-export default {
-    get __dirname() {
-        return getDirname();
-    },
-    get __filename() {
-        return getFilename();
-    }
-}
+export const getProjectPath = () => join(dirname(fileURLToPath(import.meta.url)), '..');

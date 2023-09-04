@@ -1,6 +1,6 @@
 import { EntitySchema } from "typeorm";
 
-export default new EntitySchema({
+const User = new EntitySchema({
     name: 'User',
     tableName: 'user',
     columns: {
@@ -33,3 +33,5 @@ export default new EntitySchema({
         },
     },
 });
+
+export default User;
